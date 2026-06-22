@@ -1,0 +1,25 @@
+{
+  "$schema": "https://registry.modelcontextprotocol.io/schema/server.json",
+  "name": "app.octotrip/rental-cars",
+  "description": "Free, no-login MCP server for discovering and comparing rental cars with real-time pricing from multiple providers worldwide. Results include affiliate-attributed booking links.",
+  "repository": {
+    "url": "https://github.com/octotrip/rental-cars",
+    "source": "github"
+  },
+  "version_detail": {
+    "version": "0.2.0",
+    "release_date": "2026-06-22"
+  },
+  "remotes": [
+    {
+      "transport_type": "streamable-http",
+      "url": "https://mcp.octotrip.app/rental-cars/mcp"
+    }
+  ],
+  "tools": [
+    {
+      "name": "search",
+      "description": "Search for rental cars by location, dates, and preferences. Returns available cars from multiple vendors grouped by category (economy, compact, SUV, etc.), showing the cheapest options in each. Booking links contain affiliate attribution."
+    }
+  ]
+}
