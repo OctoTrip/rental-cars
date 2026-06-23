@@ -10,7 +10,7 @@ User query --> MCP client --> OctoTrip MCP server --> Provider API(s) --> Respon
 
 - No user accounts or logins
 - No personal information
-- No IP address logging
+- IP addresses are truncated (last segment removed) in server access logs for security monitoring only. Truncated IPs cannot identify individual users
 - No query logging or search history
 - No cookies or tracking pixels
 - No analytics or telemetry
