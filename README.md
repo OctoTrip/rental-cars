@@ -102,6 +102,63 @@ The server returns structured errors with suggestions:
 - One-way rental from Berlin to Hamburg, picking up Friday, returning Monday
 - What's the cheapest economy car at London Heathrow for a week in September?
 
+## Use with Claude Desktop
+
+Add to `claude_desktop_config.json`:
+
+```json
+{
+  "mcpServers": {
+    "octotrip-rental-cars": {
+      "url": "https://mcp.octotrip.app/rental-cars/mcp"
+    }
+  }
+}
+```
+
+## Use with Cursor / Windsurf
+
+Add to your MCP settings:
+
+```json
+{
+  "mcpServers": {
+    "octotrip-rental-cars": {
+      "url": "https://mcp.octotrip.app/rental-cars/mcp"
+    }
+  }
+}
+```
+
+## Use with OpenClaw
+
+```bash
+openclaw plugins install clawhub:@xltnapps/octotrip-rental-cars
+```
+
+## Use with Smithery
+
+[![Install on Smithery](https://smithery.ai/badge/xltnapps/octotrip-rental-cars)](https://smithery.ai/servers/xltnapps/octotrip-rental-cars)
+
+```bash
+npx -y @smithery/cli install xltnapps/octotrip-rental-cars --client claude
+```
+
+## Use with Hermes Agent
+
+```bash
+hermes mcp add octotrip-rental-cars --url https://mcp.octotrip.app/rental-cars/mcp
+hermes mcp test octotrip-rental-cars
+```
+
+Or add to `~/.hermes/config.yaml`:
+
+```yaml
+mcp_servers:
+  octotrip_rental_cars:
+    url: "https://mcp.octotrip.app/rental-cars/mcp"
+```
+
 ## Privacy
 
 This server does not store, log, or track any user data. Queries are forwarded to provider APIs and results are returned directly. See [PRIVACY.md](PRIVACY.md) for details.
