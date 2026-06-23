@@ -138,7 +138,7 @@ openclaw plugins install clawhub:@xltnapps/octotrip-rental-cars
 
 ## Use with Smithery
 
-[![Install on Smithery](https://smithery.ai/badge/xltnapps/octotrip-rental-cars)](https://smithery.ai/servers/xltnapps/octotrip-rental-cars)
+Install via [Smithery](https://smithery.ai/servers/xltnapps/octotrip-rental-cars):
 
 ```bash
 npx -y @smithery/cli install xltnapps/octotrip-rental-cars --client claude
