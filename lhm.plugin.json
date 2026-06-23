@@ -1,0 +1,32 @@
+{
+  "identifier": "octotrip-rental-cars",
+  "name": "OctoTrip Rental Cars",
+  "description": "Free rental car search with real-time pricing from multiple providers worldwide. No API key required. Booking links contain affiliate attribution.",
+  "version": "0.2.0",
+  "author": "OctoTrip",
+  "authorUrl": "https://github.com/OctoTrip",
+  "category": "travel",
+  "icon": "🐙",
+  "tags": ["rental-cars", "travel", "car-hire", "price-comparison"],
+  "tools": [
+    {
+      "name": "search",
+      "description": "Search for rental cars by location, dates, and preferences. Returns available cars from multiple vendors grouped by category with real-time pricing. Results may include affiliate-attributed booking links.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "location": { "type": "string", "description": "Pickup city, airport, or address" },
+          "pickup_date": { "type": "string", "description": "Pickup date in any common format" },
+          "dropoff_date": { "type": "string", "description": "Dropoff date in any common format" },
+          "dropoff_location": { "type": "string", "description": "For one-way rentals" },
+          "pickup_time": { "type": "string", "description": "HH:MM format, defaults to 12:00" },
+          "dropoff_time": { "type": "string", "description": "HH:MM format, defaults to 12:00" },
+          "currency": { "type": "string", "description": "ISO 4217 currency code, defaults to EUR" },
+          "language": { "type": "string", "description": "2-letter language code, defaults to en" },
+          "age": { "type": "integer", "description": "Driver age, defaults to 30" }
+        },
+        "required": ["location", "pickup_date", "dropoff_date"]
+      }
+    }
+  ]
+}
