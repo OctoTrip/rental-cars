@@ -130,6 +130,20 @@ Add to your MCP settings:
 }
 ```
 
+## Use with Cline
+
+Add to your Cline MCP settings:
+
+```json
+{
+  "mcpServers": {
+    "octotrip-rental-cars": {
+      "url": "https://mcp.octotrip.app/rental-cars/mcp"
+    }
+  }
+}
+```
+
 ## Use with OpenClaw
 
 ```bash
