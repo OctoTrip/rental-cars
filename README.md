@@ -144,6 +144,10 @@ Add to your Cline MCP settings:
 }
 ```
 
+## Use with LobeHub
+
+[![MCP Badge](https://lobehub.com/badge/mcp/octotrip-rental-cars)](https://lobehub.com/mcp/octotrip-rental-cars)
+
 ## Use with OpenClaw
 
 ```bash
