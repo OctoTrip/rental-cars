@@ -2,7 +2,7 @@
   "identifier": "octotrip-rental-cars",
   "name": "OctoTrip Rental Cars",
   "description": "Free rental car search with real-time pricing from multiple providers worldwide. No API key required. Booking links contain affiliate attribution.",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "author": "OctoTrip",
   "authorUrl": "https://github.com/OctoTrip",
   "category": "travel",
@@ -11,19 +11,19 @@
   "tools": [
     {
       "name": "search",
-      "description": "Search for rental cars by location, dates, and preferences. Returns available cars from multiple vendors grouped by category with real-time pricing. Results may include affiliate-attributed booking links.",
+      "description": "Searches live rental-car offers for a pickup location and rental period. Use this when the user wants to compare available rental cars, prices, vendors, categories, or booking links. The tool queries external provider APIs in real time and may include affiliate booking links. It does not book cars, modify reservations, charge users, or store user data.",
       "inputSchema": {
         "type": "object",
         "properties": {
-          "location": { "type": "string", "description": "Pickup city, airport, or address" },
-          "pickup_date": { "type": "string", "description": "Pickup date in any common format" },
-          "dropoff_date": { "type": "string", "description": "Dropoff date in any common format" },
-          "dropoff_location": { "type": "string", "description": "For one-way rentals" },
-          "pickup_time": { "type": "string", "description": "HH:MM format, defaults to 12:00" },
-          "dropoff_time": { "type": "string", "description": "HH:MM format, defaults to 12:00" },
-          "currency": { "type": "string", "description": "ISO 4217 currency code, defaults to EUR" },
-          "language": { "type": "string", "description": "2-letter language code, defaults to en" },
-          "age": { "type": "integer", "description": "Driver age, defaults to 30" }
+          "location": { "type": "string", "description": "Pickup location, such as a city, airport, station, address, or landmark." },
+          "pickup_date": { "type": "string", "description": "Pickup date. Accepts common date formats such as YYYY-MM-DD, DD.MM.YYYY, or natural-language dates." },
+          "dropoff_date": { "type": "string", "description": "Dropoff date. Must be after the pickup date." },
+          "dropoff_location": { "type": "string", "description": "Optional different dropoff location. If omitted, the pickup location is used." },
+          "pickup_time": { "type": "string", "description": "Pickup time in 24-hour HH:MM format. Defaults to 12:00." },
+          "dropoff_time": { "type": "string", "description": "Dropoff time in 24-hour HH:MM format. Defaults to 12:00." },
+          "currency": { "type": "string", "description": "Preferred ISO 4217 currency code for prices, such as EUR, USD, or GBP. Defaults to EUR." },
+          "language": { "type": "string", "description": "Preferred response language code, such as en or de. Defaults to en." },
+          "age": { "type": "integer", "description": "Driver age. Defaults to 30. Younger drivers may incur surcharges.", "minimum": 18 }
         },
         "required": ["location", "pickup_date", "dropoff_date"]
       }

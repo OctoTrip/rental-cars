@@ -26,21 +26,21 @@ No API key or login required.
 
 ## Tool: `search`
 
-Search for rental cars by location, dates, and preferences. Returns available cars from multiple vendors grouped by category (economy, compact, SUV, etc.), showing the cheapest options in each. Dates can be in any common format (YYYY-MM-DD, DD.MM.YYYY, "August 1, 2026", etc.).
+Searches live rental-car offers for a pickup location and rental period. Returns available cars from multiple vendors grouped by category (economy, compact, SUV, etc.), showing the cheapest options in each. The tool queries external provider APIs in real time and may include affiliate booking links. It does not book cars, modify reservations, charge users, or store user data.
 
 ### Parameters
 
 | Parameter | Type | Required | Default | Description |
 |---|---|---|---|---|
-| `location` | string | yes | -- | Pickup city, airport, or address |
-| `pickup_date` | string | yes | -- | Any common date format |
-| `dropoff_date` | string | yes | -- | Any common date format |
-| `dropoff_location` | string | no | same as pickup | For one-way rentals |
-| `pickup_time` | string | no | `"12:00"` | HH:MM format |
-| `dropoff_time` | string | no | `"12:00"` | HH:MM format |
-| `currency` | string | no | `"EUR"` | ISO 4217 currency code |
-| `language` | string | no | `"en"` | 2-letter language code |
-| `age` | integer | no | `30` | Driver age (younger drivers may incur surcharges) |
+| `location` | string | yes | -- | Pickup location: city, airport, station, address, or landmark |
+| `pickup_date` | string | yes | -- | Pickup date (YYYY-MM-DD, DD.MM.YYYY, or natural-language) |
+| `dropoff_date` | string | yes | -- | Dropoff date, must be after pickup date |
+| `dropoff_location` | string | no | same as pickup | Different dropoff location for one-way rentals |
+| `pickup_time` | string | no | `"12:00"` | Pickup time in 24-hour HH:MM format |
+| `dropoff_time` | string | no | `"12:00"` | Dropoff time in 24-hour HH:MM format |
+| `currency` | string | no | `"EUR"` | ISO 4217 currency code (EUR, USD, GBP, etc.) |
+| `language` | string | no | `"en"` | Response language code (en, de, etc.) |
+| `age` | integer | no | `30` | Driver age, minimum 18 (younger drivers may incur surcharges) |
 
 ### Response Format
 
