@@ -1,0 +1,81 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "OctoTrip Rental Cars — Response Schema",
+  "oneOf": [
+    { "$ref": "#/$defs/success" },
+    { "$ref": "#/$defs/error" }
+  ],
+  "$defs": {
+    "success": {
+      "type": "object",
+      "required": ["results", "total", "total_available", "rental_days", "pickup_location_resolved", "dropoff_location_resolved", "query"],
+      "properties": {
+        "results": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/car_result" }
+        },
+        "total": { "type": "integer", "description": "Number of results returned (after aggregation)" },
+        "total_available": { "type": "integer", "description": "Total cars found before aggregation" },
+        "rental_days": { "type": "integer" },
+        "pickup_location_resolved": { "type": "string" },
+        "dropoff_location_resolved": { "type": "string" },
+        "query": { "$ref": "#/$defs/query" }
+      }
+    },
+    "car_result": {
+      "type": "object",
+      "properties": {
+        "name": { "type": "string", "description": "Vehicle name/model" },
+        "vendor": { "type": "string", "description": "Rental company name" },
+        "sipp": { "type": "string", "description": "SIPP code (e.g. CDMR)" },
+        "category": { "type": "string", "description": "Vehicle category (Mini, Economy, Compact, etc.)" },
+        "price": { "type": "number", "description": "Total rental price" },
+        "price_per_day": { "type": "number" },
+        "pay_now": { "type": "number", "description": "Amount due at booking" },
+        "pay_later": { "type": "number", "description": "Amount due at pickup" },
+        "currency": { "type": "string" },
+        "transmission": { "type": "string", "enum": ["automatic", "manual", "unknown"] },
+        "passengers": { "type": "integer" },
+        "bags": { "type": "integer" },
+        "doors": { "type": "integer" },
+        "air_con": { "type": "boolean" },
+        "fuel_policy": { "type": "string" },
+        "mileage": { "type": "string", "description": "e.g. 'Unlimited' or '300 Km'" },
+        "free_cancellation": { "type": "boolean" },
+        "free_amendment": { "type": "boolean" },
+        "deposit": { "type": "number", "description": "Maximum deposit amount" },
+        "excess": { "type": "number", "description": "Maximum excess/deductible" },
+        "included_protections": { "type": "array", "items": { "type": "string" } },
+        "image_url": { "type": "string", "format": "uri" },
+        "booking_url": { "type": "string", "format": "uri" },
+        "link_type": { "type": "string", "const": "affiliate" },
+        "affiliate_disclosure": { "type": "string" }
+      }
+    },
+    "query": {
+      "type": "object",
+      "properties": {
+        "location": { "type": "string" },
+        "dropoff_location": { "type": ["string", "null"] },
+        "pickup_date": { "type": "string", "format": "date" },
+        "dropoff_date": { "type": "string", "format": "date" },
+        "pickup_time": { "type": "string" },
+        "dropoff_time": { "type": "string" },
+        "currency": { "type": "string" },
+        "language": { "type": "string" },
+        "age": { "type": "integer" }
+      }
+    },
+    "error": {
+      "type": "object",
+      "required": ["error", "message"],
+      "properties": {
+        "error": { "type": "string", "enum": ["location_not_found", "invalid_date", "no_results", "rate_limited"] },
+        "message": { "type": "string" },
+        "suggestion": { "type": "string" },
+        "pickup_location_resolved": { "type": "string" },
+        "dropoff_location_resolved": { "type": "string" }
+      }
+    }
+  }
+}

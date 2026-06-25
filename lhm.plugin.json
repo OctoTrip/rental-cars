@@ -2,7 +2,7 @@
   "identifier": "octotrip-rental-cars",
   "name": "OctoTrip Rental Cars",
   "description": "Free rental car search with real-time pricing from multiple providers worldwide. No API key required. Booking links contain affiliate attribution.",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "author": "OctoTrip",
   "authorUrl": "https://github.com/OctoTrip",
   "category": "travel",

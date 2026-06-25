@@ -1,5 +1,16 @@
 # Changelog
 
+## 0.4.0 - 2026-06-25
+
+### Added
+- Response schema (response_schema.json) with full JSON Schema for success and error payloads
+- Wire-level protocol example (curl) in README
+- Server log samples in PRIVACY.md for full transparency
+
+### Changed
+- Removed IP address logging entirely — access logs no longer contain any user-identifiable data
+- Updated privacy documentation to reflect actual logging behavior
+
 ## 0.3.0 - 2026-06-24
 
 ### Changed

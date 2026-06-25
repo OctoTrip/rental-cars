@@ -4,6 +4,10 @@ Free, no-login MCP server for discovering and comparing rental cars with real-ti
 
 **Endpoint:** `https://mcp.octotrip.app/rental-cars/mcp`
 
+## Related
+
+- [OctoTrip Flights](https://github.com/octotrip/flights) — flight search MCP server
+
 ## Affiliate Disclosure
 
 OctoTrip is free to use. Booking links contain affiliate attribution -- OctoTrip may earn a commission at no extra cost to you. Search results are ranked by price within each car category, not by affiliate payout.
@@ -177,9 +181,52 @@ mcp_servers:
     url: "https://mcp.octotrip.app/rental-cars/mcp"
 ```
 
+## Protocol Example
+
+A complete MCP session using curl (initialize, list tools, call search):
+
+```bash
+# 1. Initialize
+curl -s -X POST https://mcp.octotrip.app/rental-cars/mcp \
+  -H "Content-Type: application/json" \
+  -H "Accept: application/json, text/event-stream" \
+  -d '{
+    "jsonrpc": "2.0", "id": 1, "method": "initialize",
+    "params": {
+      "protocolVersion": "2025-03-26",
+      "capabilities": {},
+      "clientInfo": {"name": "example", "version": "1.0"}
+    }
+  }'
+
+# 2. List tools
+curl -s -X POST https://mcp.octotrip.app/rental-cars/mcp \
+  -H "Content-Type: application/json" \
+  -H "Accept: application/json, text/event-stream" \
+  -d '{"jsonrpc": "2.0", "id": 2, "method": "tools/list"}'
+
+# 3. Search
+curl -s -X POST https://mcp.octotrip.app/rental-cars/mcp \
+  -H "Content-Type: application/json" \
+  -H "Accept: application/json, text/event-stream" \
+  -d '{
+    "jsonrpc": "2.0", "id": 3, "method": "tools/call",
+    "params": {
+      "name": "search",
+      "arguments": {
+        "location": "Munich Airport",
+        "pickup_date": "2026-08-01",
+        "dropoff_date": "2026-08-07"
+      }
+    }
+  }'
+```
+
+Transport: stateless streamable HTTP. Responses use `text/event-stream` (SSE). No session persistence or resumability. Rate limit: 1 request/second with burst capacity of 5.
+
 ## Privacy
 
-This server does not store, log, or track any user data. Queries are forwarded to provider APIs and results are returned directly. See [PRIVACY.md](PRIVACY.md) for details.
+This server does not log IP addresses, search queries, or any user-identifiable data. See [PRIVACY.md](PRIVACY.md) for full details including sample log entries.
 
 ## Security
 

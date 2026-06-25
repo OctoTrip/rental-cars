@@ -10,10 +10,24 @@ User query --> MCP client --> OctoTrip MCP server --> Provider API(s) --> Respon
 
 - No user accounts or logins
 - No personal information
-- IP addresses are truncated (last segment removed) in server access logs for security monitoring only. Truncated IPs cannot identify individual users
-- No query logging or search history
+- No IP addresses
+- No search queries or search history
 - No cookies or tracking pixels
 - No analytics or telemetry
+
+## Server Logs
+
+We maintain minimal access logs for operational monitoring. Here is exactly what a log entry looks like:
+
+```json
+{"ts": "2026-06-25T13:21:00.706176+00:00", "method": "POST", "path": "/mcp", "status": 200, "ms": 7, "ua": "python-httpx/0.28.1"}
+```
+
+**What is logged:** timestamp, HTTP method, path, status code, response time, user-agent.
+
+**What is NOT logged:** IP addresses, search queries, locations, dates, results, or any user-identifiable data.
+
+Log files are rotated automatically (10 MB cap, 5 backups) and contain only the fields shown above.
 
 ## What Happens to Your Query
 
