@@ -8,6 +8,10 @@
   "category": "travel",
   "icon": "🐙",
   "tags": ["rental-cars", "travel", "car-hire", "price-comparison"],
+  "server": {
+    "type": "streamable-http",
+    "url": "https://mcp.octotrip.app/rental-cars/mcp"
+  },
   "tools": [
     {
       "name": "search",
