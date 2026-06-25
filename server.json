@@ -2,12 +2,12 @@
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
   "name": "app.octotrip/rental-cars",
   "title": "OctoTrip Rental Cars",
-  "description": "Free, no-login rental car search with real-time pricing. Affiliate-attributed booking links.",
+  "description": "Free, no-login rental car search with real-time pricing.",
   "repository": {
     "url": "https://github.com/octotrip/rental-cars",
     "source": "github"
   },
-  "version": "0.2.0",
+  "version": "0.3.0",
   "remotes": [
     {
       "type": "streamable-http",
