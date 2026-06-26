@@ -2,7 +2,12 @@
 
 Free, no-login MCP server for discovering and comparing rental cars with real-time pricing from multiple providers worldwide.
 
-**Endpoint:** `https://mcp.octotrip.app/rental-cars/mcp`
+**Endpoint:**
+```
+https://mcp.octotrip.app/rental-cars/mcp
+```
+
+![Demo](https://raw.githubusercontent.com/octotrip/rental-cars/main/claude.gif)
 
 ## Related
 
