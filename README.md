@@ -2,7 +2,7 @@
 
 Free, no-login MCP server for discovering and comparing rental cars with real-time pricing from multiple providers worldwide.
 
-**Endpoint:**
+**MCP Streamable HTTP Endpoint:**
 ```
 https://mcp.octotrip.app/rental-cars/mcp
 ```
@@ -32,6 +32,161 @@ Add to your MCP client configuration:
 ```
 
 No API key or login required.
+
+## Use with...
+
+<details>
+<summary><strong>Claude Desktop</strong></summary>
+
+Add to `claude_desktop_config.json`:
+
+```json
+{
+  "mcpServers": {
+    "octotrip-rental-cars": {
+      "url": "https://mcp.octotrip.app/rental-cars/mcp"
+    }
+  }
+}
+```
+
+</details>
+
+<details>
+<summary><strong>Cursor / Windsurf</strong></summary>
+
+Add to your MCP settings:
+
+```json
+{
+  "mcpServers": {
+    "octotrip-rental-cars": {
+      "url": "https://mcp.octotrip.app/rental-cars/mcp"
+    }
+  }
+}
+```
+
+</details>
+
+<details>
+<summary><strong>Cline</strong></summary>
+
+Add to your Cline MCP settings:
+
+```json
+{
+  "mcpServers": {
+    "octotrip-rental-cars": {
+      "url": "https://mcp.octotrip.app/rental-cars/mcp"
+    }
+  }
+}
+```
+
+</details>
+
+<details>
+<summary><strong>LobeHub</strong></summary>
+
+[![MCP Badge](https://lobehub.com/badge/mcp/octotrip-rental-cars)](https://lobehub.com/mcp/octotrip-rental-cars)
+
+</details>
+
+<details>
+<summary><strong>OpenClaw</strong></summary>
+
+```bash
+openclaw plugins install clawhub:@xltnapps/octotrip-rental-cars
+```
+
+</details>
+
+<details>
+<summary><strong>Smithery</strong></summary>
+
+Install via [Smithery](https://smithery.ai/servers/xltnapps/octotrip-rental-cars):
+
+```bash
+npx -y @smithery/cli install xltnapps/octotrip-rental-cars --client claude
+```
+
+</details>
+
+<details>
+<summary><strong>Hermes Agent</strong></summary>
+
+```bash
+hermes mcp add octotrip-rental-cars --url https://mcp.octotrip.app/rental-cars/mcp
+hermes mcp test octotrip-rental-cars
+```
+
+Or add to `~/.hermes/config.yaml`:
+
+```yaml
+mcp_servers:
+  octotrip_rental_cars:
+    url: "https://mcp.octotrip.app/rental-cars/mcp"
+```
+
+</details>
+
+<details>
+<summary><strong>Stdio-only clients</strong></summary>
+
+For MCP clients that only support stdio transport:
+
+```bash
+npx mcp-remote https://mcp.octotrip.app/rental-cars/mcp
+```
+
+</details>
+
+<details>
+<summary><strong>curl / Protocol Example</strong></summary>
+
+A complete MCP session using curl (initialize, list tools, call search):
+
+```bash
+# 1. Initialize
+curl -s -X POST https://mcp.octotrip.app/rental-cars/mcp \
+  -H "Content-Type: application/json" \
+  -H "Accept: application/json, text/event-stream" \
+  -d '{
+    "jsonrpc": "2.0", "id": 1, "method": "initialize",
+    "params": {
+      "protocolVersion": "2025-03-26",
+      "capabilities": {},
+      "clientInfo": {"name": "example", "version": "1.0"}
+    }
+  }'
+
+# 2. List tools
+curl -s -X POST https://mcp.octotrip.app/rental-cars/mcp \
+  -H "Content-Type: application/json" \
+  -H "Accept: application/json, text/event-stream" \
+  -d '{"jsonrpc": "2.0", "id": 2, "method": "tools/list"}'
+
+# 3. Search
+curl -s -X POST https://mcp.octotrip.app/rental-cars/mcp \
+  -H "Content-Type: application/json" \
+  -H "Accept: application/json, text/event-stream" \
+  -d '{
+    "jsonrpc": "2.0", "id": 3, "method": "tools/call",
+    "params": {
+      "name": "search",
+      "arguments": {
+        "location": "Munich Airport",
+        "pickup_date": "2026-08-01",
+        "dropoff_date": "2026-08-07"
+      }
+    }
+  }'
+```
+
+Transport: stateless streamable HTTP. Responses use `text/event-stream` (SSE). No session persistence or resumability. Rate limit: 1 request/second with burst capacity of 5.
+
+</details>
 
 ## Tool: `search`
 
@@ -110,124 +265,6 @@ The server returns structured errors with suggestions:
 - I need a car in Barcelona from August 1-14, budget around 30 EUR/day
 - One-way rental from Berlin to Hamburg, picking up Friday, returning Monday
 - What's the cheapest economy car at London Heathrow for a week in September?
-
-## Use with Claude Desktop
-
-Add to `claude_desktop_config.json`:
-
-```json
-{
-  "mcpServers": {
-    "octotrip-rental-cars": {
-      "url": "https://mcp.octotrip.app/rental-cars/mcp"
-    }
-  }
-}
-```
-
-## Use with Cursor / Windsurf
-
-Add to your MCP settings:
-
-```json
-{
-  "mcpServers": {
-    "octotrip-rental-cars": {
-      "url": "https://mcp.octotrip.app/rental-cars/mcp"
-    }
-  }
-}
-```
-
-## Use with Cline
-
-Add to your Cline MCP settings:
-
-```json
-{
-  "mcpServers": {
-    "octotrip-rental-cars": {
-      "url": "https://mcp.octotrip.app/rental-cars/mcp"
-    }
-  }
-}
-```
-
-## Use with LobeHub
-
-[![MCP Badge](https://lobehub.com/badge/mcp/octotrip-rental-cars)](https://lobehub.com/mcp/octotrip-rental-cars)
-
-## Use with OpenClaw
-
-```bash
-openclaw plugins install clawhub:@xltnapps/octotrip-rental-cars
-```
-
-## Use with Smithery
-
-Install via [Smithery](https://smithery.ai/servers/xltnapps/octotrip-rental-cars):
-
-```bash
-npx -y @smithery/cli install xltnapps/octotrip-rental-cars --client claude
-```
-
-## Use with Hermes Agent
-
-```bash
-hermes mcp add octotrip-rental-cars --url https://mcp.octotrip.app/rental-cars/mcp
-hermes mcp test octotrip-rental-cars
-```
-
-Or add to `~/.hermes/config.yaml`:
-
-```yaml
-mcp_servers:
-  octotrip_rental_cars:
-    url: "https://mcp.octotrip.app/rental-cars/mcp"
-```
-
-## Protocol Example
-
-A complete MCP session using curl (initialize, list tools, call search):
-
-```bash
-# 1. Initialize
-curl -s -X POST https://mcp.octotrip.app/rental-cars/mcp \
-  -H "Content-Type: application/json" \
-  -H "Accept: application/json, text/event-stream" \
-  -d '{
-    "jsonrpc": "2.0", "id": 1, "method": "initialize",
-    "params": {
-      "protocolVersion": "2025-03-26",
-      "capabilities": {},
-      "clientInfo": {"name": "example", "version": "1.0"}
-    }
-  }'
-
-# 2. List tools
-curl -s -X POST https://mcp.octotrip.app/rental-cars/mcp \
-  -H "Content-Type: application/json" \
-  -H "Accept: application/json, text/event-stream" \
-  -d '{"jsonrpc": "2.0", "id": 2, "method": "tools/list"}'
-
-# 3. Search
-curl -s -X POST https://mcp.octotrip.app/rental-cars/mcp \
-  -H "Content-Type: application/json" \
-  -H "Accept: application/json, text/event-stream" \
-  -d '{
-    "jsonrpc": "2.0", "id": 3, "method": "tools/call",
-    "params": {
-      "name": "search",
-      "arguments": {
-        "location": "Munich Airport",
-        "pickup_date": "2026-08-01",
-        "dropoff_date": "2026-08-07"
-      }
-    }
-  }'
-```
-
-Transport: stateless streamable HTTP. Responses use `text/event-stream` (SSE). No session persistence or resumability. Rate limit: 1 request/second with burst capacity of 5.
 
 ## Privacy
 
