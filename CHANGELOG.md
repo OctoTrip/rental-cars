@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.0.0] - 2026-06-28
+
+Initial stable release.
+
+- Hosted streamable HTTP + SSE MCP server
+- `search` tool with location, pickup/dropoff dates, one-way support, currency, language, and driver age
+- No auth, no API key required
+
 ## 0.4.0 - 2026-06-25
 
 ### Added
