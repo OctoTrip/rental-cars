@@ -1,5 +1,9 @@
 # OctoTrip Rental Cars MCP Server
 
+[![Awesome](https://cdn.rawgit.com/sindresorhus/awesome/d7305f38d29fed78fa85652e3a63e154dd8e8829/media/badge.svg)](https://tensorblock.co/mcp/servers/github-octotrip-rental-cars-79f20a09)
+[![OctoTrip/rental-cars MCP server](https://glama.ai/mcp/servers/OctoTrip/rental-cars/badges/score.svg)](https://glama.ai/mcp/servers/OctoTrip/rental-cars)
+[![Smithery Calls](https://smithery.ai/badge/xltnapps/octotrip-rental-cars)](https://smithery.ai/servers/xltnapps/octotrip-rental-cars)
+
 Free, no-login MCP server for discovering and comparing rental cars with real-time pricing from multiple providers worldwide.
 
 **MCP Streamable HTTP Endpoint:**
