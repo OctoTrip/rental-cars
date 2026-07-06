@@ -95,7 +95,7 @@ Add to your Cline MCP settings:
 <details>
 <summary><strong>LobeHub</strong></summary>
 
-[![MCP Badge](https://lobehub.com/badge/mcp/octotrip-rental-cars)](https://lobehub.com/mcp/octotrip-rental-cars)
+[![MCP Badge](https://lobehub.com/badge/mcp/xltnapps-octotrip-rental-cars)](https://lobehub.com/mcp/xltnapps-octotrip-rental-cars)
 
 </details>
 
