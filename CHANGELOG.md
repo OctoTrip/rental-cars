@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-10-03
+
+### Added
+- skills.sh skill for rental car search (skills/rental-car-search/SKILL.md)
+- skills.sh badge in README
+
 ## [1.0.0] - 2026-06-28
 
 Initial stable release.

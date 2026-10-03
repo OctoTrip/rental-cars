@@ -5,6 +5,7 @@
 [![PulseMCP](https://img.shields.io/badge/PulseMCP-listed-blue)](https://www.pulsemcp.com/servers/rental-cars)
 [![Glimind reliability](https://glimind.com/v1/badge/mcp-registry%2Fapp.octotrip%2Frental-cars.svg)](https://glimind.com/tool/mcp-registry%2Fapp.octotrip%2Frental-cars?ref=badge)
 [![Uptime](https://img.shields.io/uptimerobot/ratio/30/m803358859-329d40762325910fccdcad31)](https://stats.uptimerobot.com/ZEq8YVyOAu)
+[![skills.sh](https://skills.sh/b/octotrip/rental-cars)](https://skills.sh/octotrip/rental-cars)
 
 Free, no-login MCP server for discovering and comparing rental cars with real-time pricing from multiple providers worldwide.
 
