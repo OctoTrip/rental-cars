@@ -1,0 +1,10 @@
+{
+  "name": "octotrip-rental-cars",
+  "version": "1.0.0",
+  "description": "Free MCP server for rental car search with real-time pricing. No API key required.",
+  "mcpServers": {
+    "octotrip-rental-cars": {
+      "httpUrl": "https://mcp.octotrip.app/rental-cars/mcp"
+    }
+  }
+}
