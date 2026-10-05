@@ -45,7 +45,7 @@ No API key or login required.
 <details>
 <summary><strong>Claude Desktop</strong></summary>
 
-Add to `claude_desktop_config.json`:
+Install from the [Claude Plugin Directory](https://claude.ai/directory/octotrip-rental-cars), or add manually to `claude_desktop_config.json`:
 
 ```json
 {
